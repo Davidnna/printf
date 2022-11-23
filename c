@@ -3,7 +3,7 @@
 .Sh AUTHOR 		\"Olayiwola Olakunle, Uzochukwu Ofonyiri
 
 .Dt _Printf ( "Alx Software Engineering Printf Manual"  \" Program name and manual section number
-.   
+.
 .             \" Section Header - required - don't modify
 .Nm _Printf,
 .\" The following lines are read in generating the apropos(man -k) database. Use only key
@@ -15,8 +15,9 @@
 .Nm #include <stdio.h>    \" [-abcd]
 
 /**
-* _printf - source of program
-* @format: code format
+* _printf - the source for the _printf program code
+* @format: the source for the format program code
+* Return: the pointer to dest.
 */
 int _printf(const char *restrict format, ...);                \" Arguments
 .Sh DESCRIPTION          \" Section Header - required - don't modify
@@ -70,10 +71,9 @@ A '%' is written.  No argument is converted.  The complete conversion specificat
 .\" .Sh HISTORY           \" Document history if command behaves in a unique manner
 .Sh Example
 #include "main.h"
-
 /**
-* main - source of code
-* Return: 0 if no error
+* main - the source of the main program code
+* Return: 0 if code has no error and 1 if error
 */
 int main()
 
