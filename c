@@ -1,0 +1,88 @@
+                      16/10/22             \" DATE
+
+.Sh AUTHOR 		\"Olayiwola Olakunle, Uzochukwu Ofonyiri
+
+.Dt _Printf ( "Alx Software Engineering Printf Manual"  \" Program name and manual section number
+.
+.             \" Section Header - required - don't modify
+.Nm _Printf,
+.\" The following lines are read in generating the apropos(man -k) database. Use only key
+.\" words here as the database is built based on the words here and in the .ND line.
+.nm
+.\" Use .Nm macro to designate other names for the documented program.
+.Nd Our own version of the function printf
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+.Nm #include <stdio.h>    \" [-abcd]
+
+/**
+* _printf - the source for the _printf program code
+* @format: the source for the format program code
+* Return: the pointer to dest.
+*/
+int _printf(const char *restrict format, ...);                \" Arguments
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+The functions in the
+.Nm printf()
+ family produce output according to a format as described below.
+.El                      \" Ends the list
+.Pp
+.\" .Sh ENVIRONMENT      \" May not be needed
+.\" .Bl -tag -width "ENV_VAR_1" -indent \" ENV_VAR_1 is width of the string ENV_VAR_1
+.\" .It Ev ENV_VAR_1
+.\" Description of ENV_VAR_1
+.\" .It Ev ENV_VAR_2
+.\" Description of ENV_VAR_2
+.\" .El
+.Sh Conversion specifiers                \" File used or created by the topic of the man page
+.Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
+.It d i \"-a flag as a list item
+The int argument is converted to signed decimal notation. The precision, if any, gives the
+minimum number of digits that must appear; if the converted value requires fewer digits,
+it is padded on the left with zeros.  The default precision is 1.  When 0 is printed with
+an explicit precision 0, the output is empty.
+.It o, u, x, X
+(ell) A following integer conversion corresponds to a long or unsigned long argument,
+or a following n conversion corresponds to a pointer to a long argument, or a following
+c conversion corresponds to a wint_t argument, or a following s conversion corresponds
+to a pointer to wchar_t argument.
+.It S
+Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x,
+followed by the ASCII code value in hexadecimal (upper case - always 2 characters).
+.It c
+print char.
+.It o, u, x, X
+(Not in C99 or C11, but in SUSv2, SUSv3, and SUSv4.) Synonym for ls.  Don't use.
+.It  %
+A '%' is written.  No argument is converted.  The complete conversion specification is '%%'.
+.El                      \" Ends the list
+.\" .Sh DIAGNOSTICS       \" May not be needed
+.\" .Bl -diag
+.\" .It Diagnostic Tag
+.\" Diagnostic informtion here.
+.\" .It Diagnostic Tag
+.\" Diagnostic informtion here.
+.\" .El
+.Sh RETURN VALUE
+.\" List links in ascending order by section, alphabetically within a section.
+.\" Please do not reference files that do not exist without filing a bug report
+.Xr Upon successful return, these functions return the number of characters printed
+(excluding the null byte used to end output to strings).
+.\" .Sh BUGS              \" Document known, unremedied bugs
+.\" .Sh HISTORY           \" Document history if command behaves in a unique manner
+.Sh Example
+#include "main.h"
+/**
+* main - the source of the main program code
+* Return: 0 if code has no error and 1 if error
+*/
+int main()
+
+{
+
+_printf("Hello world, I'm a %s", "Idrees");
+
+return (0);
+
+}
+
+Hello world, I'm a nurse
