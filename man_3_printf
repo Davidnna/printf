@@ -1,88 +1,134 @@
-                      16/10/22             \" DATE
+.\" _printf man page
+.\"
+.\"
+.\"
+.\"
+.\"
+.TH _PRINTF "August 05 2022" "0.1" "Library functions manual"
 
-.Sh AUTHOR 		\"Olayiwola Olakunle, Uzochukwu Ofonyiri
+.SH NAME
+.SH ""
 
-.Dt _Printf ( "Alx Software Engineering Printf Manual"  \" Program name and manual section number
-.   
-.             \" Section Header - required - don't modify
-.Nm _Printf,
-.\" The following lines are read in generating the apropos(man -k) database. Use only key
-.\" words here as the database is built based on the words here and in the .ND line.
-.nm
-.\" Use .Nm macro to designate other names for the documented program.
-.Nd Our own version of the function printf
-.Sh SYNOPSIS             \" Section Header - required - don't modify
-.Nm #include <stdio.h>    \" [-abcd]
+.B _printf
+- custom version for printf function.
 
-/**
-* _printf - source of program
-* @format: code format
-*/
-int _printf(const char *restrict format, ...);                \" Arguments
-.Sh DESCRIPTION          \" Section Header - required - don't modify
-The functions in the
-.Nm printf()
- family produce output according to a format as described below.
-.El                      \" Ends the list
-.Pp
-.\" .Sh ENVIRONMENT      \" May not be needed
-.\" .Bl -tag -width "ENV_VAR_1" -indent \" ENV_VAR_1 is width of the string ENV_VAR_1
-.\" .It Ev ENV_VAR_1
-.\" Description of ENV_VAR_1
-.\" .It Ev ENV_VAR_2
-.\" Description of ENV_VAR_2
-.\" .El
-.Sh Conversion specifiers                \" File used or created by the topic of the man page
-.Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
-.It d i \"-a flag as a list item
-The int argument is converted to signed decimal notation. The precision, if any, gives the
-minimum number of digits that must appear; if the converted value requires fewer digits,
-it is padded on the left with zeros.  The default precision is 1.  When 0 is printed with
-an explicit precision 0, the output is empty.
-.It o, u, x, X
-(ell) A following integer conversion corresponds to a long or unsigned long argument,
-or a following n conversion corresponds to a pointer to a long argument, or a following
-c conversion corresponds to a wint_t argument, or a following s conversion corresponds
-to a pointer to wchar_t argument.
-.It S
-Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x,
-followed by the ASCII code value in hexadecimal (upper case - always 2 characters).
-.It c
-print char.
-.It o, u, x, X
-(Not in C99 or C11, but in SUSv2, SUSv3, and SUSv4.) Synonym for ls.  Don't use.
-.It  %
-A '%' is written.  No argument is converted.  The complete conversion specification is '%%'.
-.El                      \" Ends the list
-.\" .Sh DIAGNOSTICS       \" May not be needed
-.\" .Bl -diag
-.\" .It Diagnostic Tag
-.\" Diagnostic informtion here.
-.\" .It Diagnostic Tag
-.\" Diagnostic informtion here.
-.\" .El
-.Sh RETURN VALUE
-.\" List links in ascending order by section, alphabetically within a section.
-.\" Please do not reference files that do not exist without filing a bug report
-.Xr Upon successful return, these functions return the number of characters printed
-(excluding the null byte used to end output to strings).
-.\" .Sh BUGS              \" Document known, unremedied bugs
-.\" .Sh HISTORY           \" Document history if command behaves in a unique manner
-.Sh Example
+.SH SYNOPSIS
+.SH ""
+
 #include "main.h"
 
-/**
-* main - source of code
-* Return: 0 if no error
-*/
-int main()
+int _printf(const char *[FORMAT], ...);
 
-{
+.SH DESCRIPTION
+.SH ""
 
-_printf("Hello world, I'm a %s", "Idrees");
 
-return (0);
+The printf function sends formatted output to stdout.
+A custom _printf() for learning purposes was developed by cohort  #8 students Nicks and Mose Parsanka.
+_printf() function format string is a character string, beginning and ending in its initial shift state, if any. 
+These arguments are placed using the percentage '%' operator
 
-}
+.SS Compilation
 
-Hello world, I'm a nurse
+.P
+.RS
+#include "main.h"
+
+$ gcc -Wall -Werror -Wextra -pedantic -Wno-format *.c
+$ gcc -Wall -Werror -Wextra -pedantic -g -Wno-format *.c (for gdb debbuging)
+.RE
+
+.SS Printing
+.RS
+
+int _printf(const char *[FORMAT], ...);
+
+FORMAT is the string that takes n specifier followed by a '%'
+symbol. i.e. "Hello this is %s from %d cohort". '...' is the variadic \
+(any type of variable).
+
+.SS Example
+
+.RS
+
+.B Input
+.PP
+_printf("Hello this is %s from %d cohort\\n\\", 33);
+.PP
+.B Output
+.PP
+Hello this is %s from %d cohort
+.RE
+
+.SS Return Value
+
+Return value is a n number of characters except NULL
+
+.SH FLAG SPECIFIERS
+.SH ""
+
+custom and non-custom specifier modifiers
+
+.SH THE LENGTH MODIFIERS
+.SH ""
+
+Length modifiers.
+
+.SH THE CONVERSION SPECIFIERS
+.SH ""
+
+.RS
+Current arguments handled by conversion specifiers:
+
+.IT
+.B %
+- % symbol is set without argument and conversion specification has to be'%%'.
+
+.IT
+.B c
+- integer or char argument converted to unsigned char.
+
+.IT
+.B d, i
+- int argument is converted to signed decimal integer.
+
+.IT
+.B s
+- string argument. _printf handles s conversion specifier if the argument value
+ is not a pointer to a literal string. \
+
+.IT
+
+.B o, u, x, X
+- unsigned int argument converted to unsigned octal (o), unsigned decimal (u),
+unsigned hexidecimal notation (x) for lower case and (X) for upper case
+
+.IT
+.B b
+- The unsigned int argument is converted to binary.
+
+.IT
+.B p
+- The pointer is printed in hexidecimal format preceded by '0x'.
+
+.IT
+.B r, R
+- 'r' prints string in reverse. 'R' prints encrypted rot13.
+
+.IT
+.B S
+- ascii <32 & >127 has to appear in the argument string. converted to
+hexadecimal preceded by \x
+
+.RE
+
+.P
+
+.SH "AUTHORS"
+.SH ""
+
+Nicks Gitobu and Musa Parsanka
+
+.B Twitter
+.PP
+@pronic_tech @musa_parsanka
